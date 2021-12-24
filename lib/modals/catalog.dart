@@ -6,6 +6,8 @@ class Item {
   final String color;
   final String image;
 
+//Named Constructor.
+
   Item(
       {required this.id,
       required this.name,

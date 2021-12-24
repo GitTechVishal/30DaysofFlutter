@@ -5,6 +5,8 @@ class HomePage extends StatelessWidget {
   int days = 30;
   String name = "Flutter Learn";
 
+//Day 11 We learnt Build Context, 3 Trees & Constraints Explained
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +21,8 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          child: Text("Welcome to $days days of flutter by $name"),
+          //child: Text("Welcome to $days days of flutter by $name"),
+          child: Text(context.runtimeType.toString()),
         ),
       ),
       drawer: MyDrawer(),

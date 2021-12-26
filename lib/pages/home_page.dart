@@ -1,13 +1,31 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/modals/catalog.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
 import 'package:flutter_application_1/widgets/item_widget.dart';
 
-class HomePage extends StatelessWidget {
-  int days = 30;
-  String name = "Flutter Learn";
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
 
-//Day 11 We learnt Build Context, 3 Trees & Constraints Explained
+class _HomePageState extends State<HomePage> {
+  int days = 30;
+
+  String name = "Flutter Learn";
+  @override
+  void initState() {
+    super.initState();
+    loaddata();
+  }
+
+  void loaddata() async {
+    var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+    var decodeData = jsonDecode(catalogJson);
+    print(decodeData);
+  }
 
   @override
   Widget build(BuildContext context) {

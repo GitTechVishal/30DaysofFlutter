@@ -11,6 +11,8 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: StadiumBorder(),
+      color: Colors.grey,
       child: ListTile(
         onTap: () {
           print("${item.price} pressed");

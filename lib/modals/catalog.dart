@@ -1,19 +1,8 @@
-class CatalogModal{
-  static final item =[
-      Item(
-      id: 1,
-      name: "iPhone 12 Pro",
-      desc: "Apple iPhone 12th generation",
-      price: 999,
-      color: "#33505a",
-      image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc")
-];
-
-
+class CatalogModal {
+  static List<Item> items = [];
 }
 
-
+//model
 class Item {
   final num id;
   final String name;
@@ -22,8 +11,7 @@ class Item {
   final String color;
   final String image;
 
-//Named Constructor.
-
+//1st default Constructor.
   Item(
       {required this.id,
       required this.name,
@@ -31,5 +19,25 @@ class Item {
       required this.price,
       required this.color,
       required this.image});
-}
 
+//2nd Named Constructor Way to DECODE
+  factory Item.fromMap(Map<dynamic, dynamic> map) {
+    return Item(
+      id: map["id"],
+      name: map["name"],
+      desc: map["desc"],
+      price: map["price"],
+      color: map["color"],
+      image: map["image"],
+    );
+  }
+//way to ENCODE
+  toMap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "image": image
+      };
+}
